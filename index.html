@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML SELECTION</title>
+</head>
+
+
+<body>
+    <form>
+        <p>select function</p>
+        <select id="college-list" onchange="changeCollege(this.selectedIndex)"></select>
+        <br>
+        <br>
+
+        <h1> function select:<span id='function-name'></span></h1>
+
+    </form>
+
+    <script type="text/javascript">
+        var colleges = ['STKMOVE', 'STKMOVE_R', 'EQMOVE', 'EQMOVE_R'];
+        var collegeSelect = document.getElementById("college-list");
+        var inner = "";
+        var functionname = "";
+
+        for (var i = 0; i < colleges.length; i++) {
+            inner = inner + '<option value=' + colleges[i] + '>' + colleges[i] + '</option>';
+        }
+        collegeSelect.innerHTML = inner;
+
+
+
+        function changeCollege(index) {
+            functionname = document.getElementById("college-list").value
+
+            document.getElementById('function-name').textContent = functionname
+        }
+        changeCollege(document.getElementById("college-list").selectedIndex);
+        console.log(functionname)
+    </script>
+</body>
+
+</html>
